@@ -3,37 +3,25 @@ var router = express.Router();
 require("dotenv").config();
 
 var userService = require("../service/userService");
-var responses = require("../core/util/response");
+var responses = require("../core/util/resultResponse");
 var authentication = require("../core/auth/authentication");
-// var authorization = (request, response, next) => {
-//   if (!request.header("authorization")) {
-//     return response.status(401).send({ message: "token yok" });
-//   }
 
-//   let token = request.header("authorization").split(" ")[1];
+// function successDataResponse(data, response, status) {
+//   response.send(data).status(status).end();
+// }
 
-//   try {
-//     var payload = jwt.verify(token, process.env.ACCESS_TOKEN);
-//   } catch (error) {
-//     console.log("Incorrect token");
-//   }
+// function errorResponse(response, status) {
+//   response.status(status).end();
+// }
 
-//   console.log(payload);
-//   if (!payload) {
-//     return response.status(401).send({ message: "Not authorized" });
-//   }
-//   next();
-// };
 //refactor
 router.post("/signUp", async (request, response) => {
   try {
     let user = request.body;
     await userService.addUser(user);
-    response.send(user);
-    response.status(200);
-    response.end();
+    responses.successDataResponse(user, response, 200);
   } catch (error) {
-    responses.errorDataRes("User cannot be added");
+    responses.errorDataResponse("User cannot be added");
   }
 });
 
@@ -43,12 +31,9 @@ router.get(
   async (request, response) => {
     try {
       const users = await userService.findAllUsers();
-      response.send(users);
-      response.status(200);
-      response.end();
+      responses.successDataResponse(users, response, 200);
     } catch (error) {
-      response.status(400);
-      response.end();
+      responses.errorResponse(response, 400);
     }
   }
 );
@@ -60,7 +45,7 @@ router.post("/login", async (request, response) => {
 
     response.status(200).header({ authorization: token }).end();
   } catch (error) {
-    response.status(400).end();
+    responses.errorResponse(response, 403);
   }
 });
 

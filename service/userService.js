@@ -27,10 +27,6 @@ async function loginManager(data) {
     return user;
   }
 
-  // var token = jwt.sign(user, process.env.ACCESS_TOKEN, {
-  //   expiresIn: "1h",
-  // });
-
   var token = authentication.signToken(user, "1h");
 
   return "Bearer " + token;
