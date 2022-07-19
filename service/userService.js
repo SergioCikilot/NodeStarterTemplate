@@ -1,6 +1,8 @@
-var userDao = require("../data/userDao");
 require("dotenv").config();
 var jwt = require("jsonwebtoken");
+
+var userDao = require("../data/userDao");
+var authentication = require("../core/auth/authentication");
 
 async function addUser(data) {
   const message = await userDao.createUser(data);
@@ -25,9 +27,12 @@ async function loginManager(data) {
     return user;
   }
 
-  var token = jwt.sign(user, process.env.ACCESS_TOKEN, {
-    expiresIn: "1h",
-  });
+  // var token = jwt.sign(user, process.env.ACCESS_TOKEN, {
+  //   expiresIn: "1h",
+  // });
+
+  var token = authentication.signToken(user, "1h");
+
   return "Bearer " + token;
 }
 

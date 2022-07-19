@@ -10,7 +10,8 @@ const PORT = 8080;
 
 app.use(corsConfig.corsConfig);
 app.use(bodyParser.json());
-app.use(authenticator.authenticate);
+// app.use(authenticator.authorization);
+
 // mongoose.connect(CONNECTION_STRING, (error) => {
 //   if (!error) {
 //     console.log("Connected to db");
