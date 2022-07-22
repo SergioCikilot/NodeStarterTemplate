@@ -1,4 +1,6 @@
-const { execSync } = require('node:child_process')
+#!/usr/bin/env node
+
+const { execSync } = require('child_process')
 const path = require("path");
 const fs = require("fs");
 
