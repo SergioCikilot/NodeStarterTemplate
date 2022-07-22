@@ -1,6 +1,6 @@
 {
-  "name": "nodeexstartertemplate1",
-  "version": "1.0.7",
+  "name": "create-sergio-app",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "bin": {
