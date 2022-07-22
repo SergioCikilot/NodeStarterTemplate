@@ -1,6 +1,6 @@
-import { execSync } from 'node:child_process';
-import { join } from "path";
-import { mkdirSync, rmdirSync } from "fs";
+const { execSync } = require('node:child_process')
+const path = require("path");
+const fs = require("fs");
 
 if (process.argv.length < 3) {
   console.log("You have to provide a name to your app.");
@@ -11,11 +11,11 @@ if (process.argv.length < 3) {
 
 const projectName = process.argv[2];
 const currentPath = process.cwd();
-const projectPath = join(currentPath, projectName);
+const projectPath = path.join(currentPath, projectName);
 const git_repo = "https://github.com/SergioCikilot/NodeStarterTemplate.git";
 
 try {
-  mkdirSync(projectPath);
+  fs.mkdirSync(projectPath);
 } catch (err) {
   if (err.code === "EEXIST") {
     console.log(
@@ -39,7 +39,7 @@ async function main() {
 
     console.log("Removing useless files");
     execSync("npx rimraf ./.git");
-    rmdirSync(join(projectPath, "bin"), { recursive: true });
+    fs.rmdirSync(path.join(projectPath, "bin"), { recursive: true });
 
     console.log("The installation is done, this is ready to use !");
   } catch (error) {
