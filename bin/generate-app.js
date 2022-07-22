@@ -1,6 +1,6 @@
-var { execSync } = require("child_process");
-var path = require("path");
-var fs = require("fs");
+const { execSync } = require("child_process");
+const path = require("path");
+const fs = require("fs");
 
 if (process.argv.length < 3) {
   console.log("You have to provide a name to your app.");
