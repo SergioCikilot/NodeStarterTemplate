@@ -6,7 +6,6 @@ var userService = require("../service/userService");
 var responses = require("../core/util/resultResponse");
 var authentication = require("../core/auth/authentication");
 
-//refactor
 router.post("/signUp", async (request, response) => {
   try {
     let user = request.body;
@@ -35,7 +34,6 @@ router.post("/login", async (request, response) => {
     let user = request.body;
     const token = await userService.loginManager(user);
 
-    // response.status(200).header({ authorization: token }).end();
     responses.successHeaderResponse({ authorization: token }, response, 200);
   } catch (error) {
     responses.errorResponse(response, 403);
