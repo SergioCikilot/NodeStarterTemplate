@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "create-sergio": "./generate-app.js"
+    "create-sergio": "./bin/generate-app.js"
   },
   "scripts": {
     "start": "nodemon index.js"
