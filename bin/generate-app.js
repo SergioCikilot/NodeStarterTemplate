@@ -43,6 +43,7 @@ async function main() {
     execSync("npx rimraf ./.git");
     fs.rmSync(path.join(projectPath, "bin"), { recursive: true });
 
+    console.log(" ");
     console.log("The installation is done dawg");
     console.log(" ");
     console.log("MY NAME IS SERGIO");
