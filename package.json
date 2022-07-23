@@ -1,27 +1,21 @@
 {
   "name": "create-sergio-app",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "create-sergio-app",
   "main": "index.js",
   "bin": {
     "create-sergio": "./bin/generate-app.js"
   },
-  "scripts": {
-    "start": "nodemon index.js"
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergioCikilot/NodeStarterTemplate.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@prisma/client": "^4.0.0",
-    "body-parser": "^1.20.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "jsonwebtoken": "^8.5.1",
-    "nodemon": "^2.0.19"
+  "bugs": {
+    "url": "https://github.com/SergioCikilot/NodeStarterTemplate/issues"
   },
-  "devDependencies": {
-    "prisma": "^4.0.0"
-  }
+  "homepage": "https://github.com/SergioCikilot/NodeStarterTemplate#readme"
 }

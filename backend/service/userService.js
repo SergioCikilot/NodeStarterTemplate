@@ -1,5 +1,5 @@
 require("dotenv").config();
-var jwt = require("jsonwebtoken");
+
 
 var userDao = require("../data/userDao");
 var authentication = require("../core/auth/authentication");
