@@ -1,10 +1,10 @@
 {
   "name": "create-sergio-app",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "create-sergio-app",
   "main": "index.js",
   "bin": {
-    "create-sergio": "generate-app.js"
+    "create-sergio": "./bin/generate-app.js"
   },
   
   "repository": {
