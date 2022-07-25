@@ -13,7 +13,8 @@
     "nodemon": "^2.0.19"
   },
   "devDependencies": {
-    "prisma": "^4.0.0"
+    "prisma": "^4.0.0",
+    "swagger-ui-express": "^4.5.0"
   },
   "scripts": {
     "start": "nodemon index.js"

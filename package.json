@@ -6,7 +6,6 @@
   "bin": {
     "create-sergio": "./bin/generate-app.js"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SergioCikilot/NodeStarterTemplate.git"

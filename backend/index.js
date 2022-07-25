@@ -1,8 +1,13 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var authenticator = require("./core/auth/authentication");
+var swaggerUi = require('swagger-ui-express');
+
+var swaggerDocument = require('./swagger.json');
 var userApi = require("./api/userApi");
 var corsConfig = require("./config/corsConfig");
-var authenticator = require("./core/auth/authentication");
+
+
 var app = express();
 
 const CONNECTION_STRING = ".....";
@@ -10,6 +15,7 @@ const PORT = 8080;
 
 app.use(corsConfig.corsConfig);
 app.use(bodyParser.json());
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // app.use(authenticator.authorization);
 
 // mongoose.connect(CONNECTION_STRING, (error) => {
