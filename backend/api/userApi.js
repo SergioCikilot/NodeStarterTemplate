@@ -4,7 +4,7 @@ require("dotenv").config();
 
 var userService = require("../service/userService");
 var responses = require("../core/util/resultResponse");
-var authentication = require("../core/auth/authentication");
+var authentication = require("../security/auth/authentication");
 
 router.post("/signUp", async (request, response) => {
   try {

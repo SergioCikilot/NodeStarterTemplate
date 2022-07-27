@@ -1,10 +1,15 @@
 require("dotenv").config();
 
-
+var bcryptHasher = require("../security/bcryptHasher");
 var userDao = require("../data/userDao");
-var authentication = require("../core/auth/authentication");
+var authentication = require("../security/auth/authentication");
 
 async function addUser(data) {
+  let password = data.password;
+
+  let hashedPassword = bcryptHasher.hash(password);
+
+  data.password = hashedPassword;
   const message = await userDao.createUser(data);
   return message;
 }
